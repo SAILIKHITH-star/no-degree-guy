@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">Rupa IIT Study Circle</string>
+    <string name="app_tagline">IIT-JEE • NEET • BITSAT • EAMCET • 6th to 10th Foundation</string>
+    <string name="sign_in_with_google">Sign in with Google</string>
+    <string name="nav_home">Home</string>
+    <string name="nav_courses">Batches</string>
+    <string name="nav_campus">Location</string>
+    <string name="nav_profile">Profile</string>
+    <string name="cd_campus_hero">Rupa IIT NEET Study Circle campus illustration</string>
+    <string name="cd_jee_banner">Rupa IIT NEET Study Circle academic banner</string>
+    <string name="cd_official_banner">Rupa IIT NEET Study Circle official institute banner featuring Founder Shankar Royal G</string>
+    <string name="cd_study_mentor">Faculty mentor guiding IIT and NEET students</string>
+    <string name="cd_app_emblem">Rupa IIT Study Circle official emblem</string>
+    <string name="cd_whatsapp_logo">Chat on WhatsApp</string>
+    <string name="cd_phone_logo">Call phone number</string>
+</resources>

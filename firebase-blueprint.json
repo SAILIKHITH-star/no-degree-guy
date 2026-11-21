@@ -1,0 +1,279 @@
+{
+  "entities": {
+    "InstituteConfig": {
+      "title": "InstituteConfig",
+      "description": "Public campus location, contact numbers, WhatsApp numbers, director bio, batch timings, and monthly fee info for Rupa IIT / NEET Study Circle.",
+      "type": "object",
+      "properties": {
+        "centerName": { "type": "string", "description": "Name of the coaching center" },
+        "tagline": { "type": "string", "description": "Programs offered summary" },
+        "directorName": { "type": "string", "description": "Founder and Director name" },
+        "directorBio": { "type": "string", "description": "Director credentials and experience" },
+        "address": { "type": "string", "description": "Full street address of campus" },
+        "landmark": { "type": "string", "description": "Nearby landmark" },
+        "city": { "type": "string", "description": "City, state and PIN code" },
+        "latitude": { "type": "number", "description": "Campus GPS latitude" },
+        "longitude": { "type": "number", "description": "Campus GPS longitude" },
+        "mainPhone": { "type": "string", "description": "Primary phone and WhatsApp number" },
+        "altPhone1": { "type": "string", "description": "Alternative phone and WhatsApp number 1" },
+        "altPhone2": { "type": "string", "description": "Alternative phone and WhatsApp number 2" },
+        "altPhone3": { "type": "string", "description": "Alternative phone and WhatsApp number 3" },
+        "batchTimings": { "type": "string", "description": "1st and 2nd batch timings" },
+        "monthlyFeeInr": { "type": "integer", "description": "Standard monthly tuition fee in INR" },
+        "updatedAt": { "type": "string", "format": "date-time", "description": "Server timestamp written via FieldValue.serverTimestamp()" }
+      },
+      "required": [
+        "centerName",
+        "tagline",
+        "directorName",
+        "directorBio",
+        "address",
+        "city",
+        "latitude",
+        "longitude",
+        "mainPhone",
+        "batchTimings",
+        "monthlyFeeInr",
+        "updatedAt"
+      ]
+    },
+    "Course": {
+      "title": "Course",
+      "description": "IIT-JEE, NEET, BITSAT, EAMCET, Intermediate, or 6th to 10th Foundation batch.",
+      "type": "object",
+      "properties": {
+        "title": { "type": "string", "description": "Course or batch title" },
+        "subject": {
+          "type": "string",
+          "enum": ["IIT_JEE", "NEET", "BITSAT", "EAMCET", "INTERMEDIATE", "FOUNDATION", "PHYSICS", "CHEMISTRY", "MATHEMATICS", "FULL_JEE"],
+          "description": "Exam or subject category"
+        },
+        "targetExam": { "type": "string", "description": "Target exam or board" },
+        "instructor": { "type": "string", "description": "Lead faculty mentor" },
+        "schedule": { "type": "string", "description": "Batch timings" },
+        "feeAmountInr": { "type": "integer", "description": "Monthly fee amount in Indian Rupees" },
+        "feeCycle": {
+          "type": "string",
+          "enum": ["MONTHLY", "QUARTERLY", "FULL_COURSE"],
+          "description": "Fee cycle label"
+        },
+        "roomName": { "type": "string", "description": "Classroom or boards covered" },
+        "description": { "type": "string", "description": "Detailed syllabus and batch overview" },
+        "published": { "type": "boolean", "description": "Whether visible to students" },
+        "createdBy": { "type": "string", "description": "UID of admin who created the batch" },
+        "createdAt": { "type": "string", "format": "date-time", "description": "Server timestamp" },
+        "updatedAt": { "type": "string", "format": "date-time", "description": "Server timestamp" }
+      },
+      "required": [
+        "title",
+        "subject",
+        "targetExam",
+        "instructor",
+        "schedule",
+        "feeAmountInr",
+        "feeCycle",
+        "roomName",
+        "description",
+        "published",
+        "createdBy",
+        "createdAt",
+        "updatedAt"
+      ]
+    },
+    "StudyMaterial": {
+      "title": "StudyMaterial",
+      "description": "Daily Practice Problems (DPPs), formula sheets, lecture notes, and mock papers.",
+      "type": "object",
+      "properties": {
+        "title": { "type": "string", "description": "Material title" },
+        "subject": {
+          "type": "string",
+          "enum": ["PHYSICS", "CHEMISTRY", "MATHEMATICS", "BIOLOGY", "GENERAL"],
+          "description": "Subject area"
+        },
+        "chapter": { "type": "string", "description": "Chapter or topic name" },
+        "materialType": {
+          "type": "string",
+          "enum": ["DPP", "NOTES", "FORMULA_SHEET", "MOCK_PAPER"],
+          "description": "Type of study material"
+        },
+        "summary": { "type": "string", "description": "Key concepts, formulas, or practice problems" },
+        "resourceUrl": { "type": "string", "description": "Optional external HTTPS link to PDF or lecture" },
+        "published": { "type": "boolean", "description": "Whether visible to students" },
+        "createdBy": { "type": "string", "description": "Admin UID" },
+        "createdAt": { "type": "string", "format": "date-time", "description": "Server timestamp" },
+        "updatedAt": { "type": "string", "format": "date-time", "description": "Server timestamp" }
+      },
+      "required": [
+        "title",
+        "subject",
+        "chapter",
+        "materialType",
+        "summary",
+        "published",
+        "createdBy",
+        "createdAt",
+        "updatedAt"
+      ]
+    },
+    "Announcement": {
+      "title": "Announcement",
+      "description": "Official study circle update, exam notice, or batch alert.",
+      "type": "object",
+      "properties": {
+        "title": { "type": "string", "description": "Update headline" },
+        "body": { "type": "string", "description": "Update details" },
+        "category": {
+          "type": "string",
+          "enum": ["EXAM", "SCHEDULE", "ADMISSION", "GENERAL"],
+          "description": "Update category"
+        },
+        "pinned": { "type": "boolean", "description": "Whether highlighted at top" },
+        "published": { "type": "boolean", "description": "Whether visible to students" },
+        "createdBy": { "type": "string", "description": "Admin UID" },
+        "createdAt": { "type": "string", "format": "date-time", "description": "Server timestamp" },
+        "updatedAt": { "type": "string", "format": "date-time", "description": "Server timestamp" }
+      },
+      "required": [
+        "title",
+        "body",
+        "category",
+        "pinned",
+        "published",
+        "createdBy",
+        "createdAt",
+        "updatedAt"
+      ]
+    },
+    "Doubt": {
+      "title": "Doubt",
+      "description": "Student academic doubt submitted to Rupa IIT / NEET faculty.",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string", "description": "Student UID" },
+        "studentName": { "type": "string", "description": "Student display name" },
+        "subject": {
+          "type": "string",
+          "enum": ["PHYSICS", "CHEMISTRY", "MATHEMATICS", "BIOLOGY", "GENERAL"],
+          "description": "Subject of the doubt"
+        },
+        "question": { "type": "string", "description": "Student question text" },
+        "status": {
+          "type": "string",
+          "enum": ["OPEN", "ANSWERED"],
+          "description": "Resolution status"
+        },
+        "answer": { "type": "string", "description": "Faculty solution" },
+        "answeredBy": { "type": "string", "description": "Faculty responder name" },
+        "createdAt": { "type": "string", "format": "date-time", "description": "Server timestamp" },
+        "updatedAt": { "type": "string", "format": "date-time", "description": "Server timestamp" }
+      },
+      "required": [
+        "userId",
+        "studentName",
+        "subject",
+        "question",
+        "status",
+        "createdAt",
+        "updatedAt"
+      ]
+    },
+    "UserProfile": {
+      "title": "UserProfile",
+      "description": "Private student or faculty profile isolated by owner UID.",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string", "description": "Owner Firebase UID" },
+        "displayName": { "type": "string", "description": "Full name" },
+        "email": { "type": "string", "description": "Google account email" },
+        "phone": { "type": "string", "description": "Optional phone number" },
+        "targetYear": { "type": "string", "description": "Target exam or class" },
+        "createdAt": { "type": "string", "format": "date-time", "description": "Server timestamp" },
+        "updatedAt": { "type": "string", "format": "date-time", "description": "Server timestamp" }
+      },
+      "required": ["userId", "displayName", "email", "createdAt", "updatedAt"]
+    },
+    "Enrollment": {
+      "title": "Enrollment",
+      "description": "Student batch enrollment under user subcollection.",
+      "type": "object",
+      "properties": {
+        "courseId": { "type": "string", "description": "Course document ID" },
+        "courseTitle": { "type": "string", "description": "Course title" },
+        "targetExam": { "type": "string", "description": "Target exam" },
+        "schedule": { "type": "string", "description": "Class schedule" },
+        "feeAmountInr": { "type": "integer", "description": "Course fee amount" },
+        "status": { "type": "string", "enum": ["ACTIVE", "COMPLETED"], "description": "Enrollment status" },
+        "createdAt": { "type": "string", "format": "date-time", "description": "Server timestamp" },
+        "updatedAt": { "type": "string", "format": "date-time", "description": "Server timestamp" }
+      },
+      "required": ["courseId", "courseTitle", "targetExam", "schedule", "feeAmountInr", "status", "createdAt", "updatedAt"]
+    },
+    "AttendanceRecord": {
+      "title": "AttendanceRecord",
+      "description": "Student campus GPS check-in or study log.",
+      "type": "object",
+      "properties": {
+        "batchName": { "type": "string", "description": "Batch or session name" },
+        "dateLabel": { "type": "string", "description": "Human-readable date" },
+        "status": { "type": "string", "enum": ["PRESENT", "REMOTE_STUDY"], "description": "Check-in mode" },
+        "distanceMeters": { "type": "integer", "description": "Computed distance from campus in meters" },
+        "createdAt": { "type": "string", "format": "date-time", "description": "Server timestamp" }
+      },
+      "required": ["batchName", "dateLabel", "status", "distanceMeters", "createdAt"]
+    },
+    "MockTestScore": {
+      "title": "MockTestScore",
+      "description": "Student JEE/NEET mock test score tracker entry.",
+      "type": "object",
+      "properties": {
+        "testName": { "type": "string", "description": "Mock test title" },
+        "physicsScore": { "type": "integer", "description": "Physics marks" },
+        "chemistryScore": { "type": "integer", "description": "Chemistry marks" },
+        "mathScore": { "type": "integer", "description": "Maths or Biology marks" },
+        "maxScore": { "type": "integer", "description": "Total maximum marks" },
+        "dateLabel": { "type": "string", "description": "Test date label" },
+        "createdAt": { "type": "string", "format": "date-time", "description": "Server timestamp" }
+      },
+      "required": ["testName", "physicsScore", "chemistryScore", "mathScore", "maxScore", "dateLabel", "createdAt"]
+    }
+  },
+  "firestore": {
+    "/institute_config/{configId}": {
+      "schema": { "$ref": "#/entities/InstituteConfig" },
+      "description": "Campus location, timings, director info, monthly fee, and 4 contact/WhatsApp numbers."
+    },
+    "/courses/{courseId}": {
+      "schema": { "$ref": "#/entities/Course" },
+      "description": "Coaching batches published by Rupa IIT / NEET Study Circle."
+    },
+    "/study_materials/{materialId}": {
+      "schema": { "$ref": "#/entities/StudyMaterial" },
+      "description": "DPPs, notes, formula sheets, and mock papers."
+    },
+    "/announcements/{announcementId}": {
+      "schema": { "$ref": "#/entities/Announcement" },
+      "description": "Study circle updates and exam notices."
+    },
+    "/doubts/{doubtId}": {
+      "schema": { "$ref": "#/entities/Doubt" },
+      "description": "Student academic doubts and faculty answers."
+    },
+    "/users/{userId}": {
+      "schema": { "$ref": "#/entities/UserProfile" },
+      "description": "Owner-isolated user profile with PII."
+    },
+    "/users/{userId}/enrollments/{enrollmentId}": {
+      "schema": { "$ref": "#/entities/Enrollment" },
+      "description": "Student's enrolled batches."
+    },
+    "/users/{userId}/attendance/{attendanceId}": {
+      "schema": { "$ref": "#/entities/AttendanceRecord" },
+      "description": "Student campus attendance check-ins."
+    },
+    "/users/{userId}/test_scores/{scoreId}": {
+      "schema": { "$ref": "#/entities/MockTestScore" },
+      "description": "Student mock test score records."
+    }
+  }
+}

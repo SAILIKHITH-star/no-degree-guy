@@ -1,0 +1,6 @@
+{
+  "name": "Rupa IIT Study Circle",
+  "description": "Official companion app for Rupa IIT / NEET Study Circle (NGO Colony, Chinna Chowk, Kadapa - 500601) with batches, study updates, DPPs & doubts, direct 1-tap WhatsApp & phone contact, and live campus distance & Google Maps directions.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
